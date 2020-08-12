@@ -1025,7 +1025,8 @@ checksum = "cccddf32554fecc6acb585f82a32a72e28b48f8c4c1883ddfeeeaa96f7d8e519"
 
 [[package]]
 name = "waves-protobuf-schemas"
-version = "1.2.7-SNAPSHOT"
+version = "1.2.6"
+source = "git+https://github.com/wavesplatform/protobuf-schemas?branch=blockchain-updates-from-1.2.6#eea228c8444f31c1762a888168bc413ca1fe77a6"
 dependencies = [
  "prost",
  "tonic",
