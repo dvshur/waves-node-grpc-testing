@@ -9,4 +9,4 @@ edition = "2018"
 [dependencies]
 tonic = "0.2"
 tokio = { version = "0.2", features = ["full"] }
-waves-protobuf-schemas = { git = "https://github.com/wavesplatform/protobuf-schemas", branch = "blockchain-updates-from-1.2.6" }
+waves-protobuf-schemas = { git = "https://github.com/wavesplatform/protobuf-schemas", tag = "v1.3.0" }
