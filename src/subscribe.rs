@@ -1,3 +1,4 @@
+use humantime::format_duration;
 use std::env::var;
 use std::time::Duration;
 use waves_protobuf_schemas::waves::events::grpc::blockchain_updates_api_client::BlockchainUpdatesApiClient;
@@ -48,6 +49,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         to_height,
     };
 
+    let streaming_started_at = std::time::Instant::now();
+
     let mut stream = client.subscribe(request).await?.into_inner();
 
     while let Some(msg) = stream.message().await? {
@@ -62,7 +65,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
 
-    println!("Finished streaming");
+    println!(
+        "Finished streaming in {}",
+        format_duration(Duration::from_millis(
+            streaming_started_at.elapsed().as_millis() as u64
+        ))
+    );
 
     Ok(())
 }
